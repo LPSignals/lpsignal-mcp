@@ -3,6 +3,7 @@
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-app.lpsignal%2Flpsignal-blue)](https://registry.modelcontextprotocol.io/v0.1/servers?search=app.lpsignal/lpsignal)
 [![Website](https://img.shields.io/badge/website-lpsignal.app-0b7285)](https://lpsignal.app)
 [![Docs](https://img.shields.io/badge/docs-lpsignal.app%2Fdocs-0b7285)](https://lpsignal.app/docs)
+[![X](https://img.shields.io/badge/X-%40lpsignalhq-000000?logo=x&logoColor=white)](https://x.com/lpsignalhq)
 [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/buKQT9mkaF)
 [![Telegram](https://img.shields.io/badge/Telegram-%40LPsignals__bot-26A5E4?logo=telegram&logoColor=white)](https://t.me/LPsignals_bot)
 [![npm](https://img.shields.io/npm/v/lpsignal?label=npm%20lpsignal)](https://www.npmjs.com/package/lpsignal)
@@ -153,6 +154,7 @@ lose money if the price moves out of it.
 
 ## Community and support
 
+- **X**: [@lpsignalhq](https://x.com/lpsignalhq) — product updates
 - **Discord**: [discord.gg/buKQT9mkaF](https://discord.gg/buKQT9mkaF) — questions, feedback, the free signal feed
 - **Telegram bot**: [@LPsignals_bot](https://t.me/LPsignals_bot) — signals pushed to your chat
 - **Telegram support**: [t.me/lpsignal_support](https://t.me/lpsignal_support)
@@ -167,7 +169,7 @@ lose money if the price moves out of it.
 Uniswap v3/v4、PancakeSwap v3、Aerodrome、Velodrome。全部工具只读，不碰资金。不带密钥为免费视图；在请求头加
 `Authorization: Bearer lps_…`（[账户页](https://lpsignal.app/zh/account)生成）按你的套餐返回。数据是历史回测，不是预测，也不构成投资建议。
 
-社区与支持：[Discord](https://discord.gg/buKQT9mkaF) · Telegram 信号机器人 [@LPsignals_bot](https://t.me/LPsignals_bot) · [Telegram 客服](https://t.me/lpsignal_support) · [support@lpsignal.app](mailto:support@lpsignal.app) · [中文官网](https://lpsignal.app/zh)
+社区与支持：[X @lpsignalhq](https://x.com/lpsignalhq) · [Discord](https://discord.gg/buKQT9mkaF) · Telegram 信号机器人 [@LPsignals_bot](https://t.me/LPsignals_bot) · [Telegram 客服](https://t.me/lpsignal_support) · [support@lpsignal.app](mailto:support@lpsignal.app) · [中文官网](https://lpsignal.app/zh)
 
 ## License
 
