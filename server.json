@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "app.lpsignal/lpsignal",
+  "title": "LPSignal",
+  "description": "Uniswap/PancakeSwap/Aerodrome LP pools and price ranges ranked by net APR after impermanent loss",
+  "version": "1.0.1",
+  "websiteUrl": "https://lpsignal.app/docs",
+  "repository": {
+    "url": "https://github.com/LPSignals/lpsignal-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.lpsignal.app/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional. 'Bearer lps_…' (an LPSignal API key) for your plan's live view; without it you get the free view.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
