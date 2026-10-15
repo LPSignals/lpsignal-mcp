@@ -15,12 +15,12 @@ any MCP client — find the best **concentrated-liquidity pools and price ranges
 impermanent loss**, from hourly backtests on exact on-chain fees. Ask your agent which Uniswap v3 range to LP in,
 backtest a range, or check impermanent loss, and it answers with live data from [LPSignal](https://lpsignal.app).
 
-```
-https://api.lpsignal.app/v1/mcp
-```
+| Endpoint | For |
+|---|---|
+| `https://api.lpsignal.app/v1/mcp` | **Your account.** Your app opens lpsignal.app, you sign in with your wallet and click Allow (OAuth 2.1). Or send an API key. |
+| `https://api.lpsignal.app/v1/mcp/public` | **No sign-in.** The free view, for a quick look or clients without OAuth. |
 
-Remote server (Streamable HTTP): nothing to install, no API key needed to start. Official MCP Registry name:
-`app.lpsignal/lpsignal`.
+Remote server (Streamable HTTP): nothing to install. Official MCP Registry name: `app.lpsignal/lpsignal`.
 
 ## Why net APR, not fee APR
 
@@ -46,14 +46,22 @@ $100M market cap). Uniswap v4 pools without hooks and with a static fee.
 
 ## Quick start
 
-No key: the free view. With an LPSignal API key (from your [account page](https://lpsignal.app/account)) add the header
-`Authorization: Bearer lps_…` for your plan's view.
+Add `https://api.lpsignal.app/v1/mcp` and connect: your client opens lpsignal.app, you sign in with your wallet and
+click **Allow**. A free LPSignal account works (the free view); Basic and Pro see signals live. Disconnect any time in
+your [account](https://lpsignal.app/account). No OAuth in your client? Send an API key in
+`Authorization: Bearer lps_…`, or use `/v1/mcp/public` without signing in.
+
+**Claude (web / desktop)**: Settings → Connectors → Add custom connector → URL `https://api.lpsignal.app/v1/mcp` →
+Connect.
+
+**ChatGPT**: Settings → Connectors (developer mode) → Create → URL `https://api.lpsignal.app/v1/mcp`, authentication
+OAuth.
 
 **Claude Code**
 
 ```bash
 claude mcp add --transport http lpsignal https://api.lpsignal.app/v1/mcp
-# with a key:
+# then /mcp in Claude Code to sign in. Or with an API key:
 claude mcp add --transport http lpsignal https://api.lpsignal.app/v1/mcp --header "Authorization: Bearer lps_…"
 ```
 
@@ -62,10 +70,7 @@ claude mcp add --transport http lpsignal https://api.lpsignal.app/v1/mcp --heade
 ```json
 {
   "mcpServers": {
-    "lpsignal": {
-      "url": "https://api.lpsignal.app/v1/mcp",
-      "headers": { "Authorization": "Bearer lps_…" }
-    }
+    "lpsignal": { "url": "https://api.lpsignal.app/v1/mcp" }
   }
 }
 ```
@@ -75,19 +80,13 @@ claude mcp add --transport http lpsignal https://api.lpsignal.app/v1/mcp --heade
 ```json
 {
   "servers": {
-    "lpsignal": {
-      "type": "http",
-      "url": "https://api.lpsignal.app/v1/mcp",
-      "headers": { "Authorization": "Bearer lps_…" }
-    }
+    "lpsignal": { "type": "http", "url": "https://api.lpsignal.app/v1/mcp" }
   }
 }
 ```
 
-**Claude (desktop / web)**: Settings → Connectors → Add custom connector, URL `https://api.lpsignal.app/v1/mcp` (the
-free view; this dialog does not take headers).
-
-Leave out `headers` for the free view.
+Cursor and VS Code ask you to sign in on first use. To skip sign-in, point them at
+`https://api.lpsignal.app/v1/mcp/public` (the free view).
 
 ## Tools
 
@@ -102,7 +101,7 @@ All read-only: the server never touches funds or wallets.
 | `list_signals` | Latest LP signals: opportunities (`net_apr`, `burst`, `hot_pool`) and risk alerts (stablecoin `depeg`, `tvl_outflow`) |
 | `signal_track_record` | How past signals really did, re-backtested on their exact ticks |
 | `smart_lp_leaderboard` | Wallets ranked by what their closed LP positions made versus holding the tokens |
-| `my_account` | With a key: your plan, subscriptions and custom alert rules |
+| `my_account` | Your plan, subscriptions and custom alert rules (signed in; not on `/public`) |
 
 APRs come back as percent text (`"42.0%"`) so a model never misreads a fraction, and every pool links to its page on
 lpsignal.app.
@@ -118,7 +117,7 @@ lpsignal.app.
 
 ## Free and paid
 
-| | Free (no key) | Basic / Pro key |
+| | No sign-in (`/public`) or a free account | Basic / Pro account |
 |---|---|---|
 | Pool rankings, pair search, backtests, track record | ✓ | ✓ |
 | Risk alerts (depeg, liquidity outflow) | live | live |
@@ -136,8 +135,8 @@ Aerodrome and Velodrome Slipstream) on seven chains, with backtested net APR per
 **How do I calculate impermanent loss with an AI agent?** Connect this server and ask for a backtest
 (`backtest_range`): it returns fee APR, impermanent loss and net APR of that exact range over the last 1–30 days.
 
-**Do I need an API key?** No. Without one you get the free view; a paid LPSignal key adds live signals and your own
-alert rules.
+**Do I need an API key?** No. Sign in with your wallet when your app asks (OAuth), or use `/v1/mcp/public` without
+signing in. An API key is only for clients without OAuth.
 
 **Can the agent add liquidity for me?** No. Every tool is read-only. LPSignal's website lets you add liquidity from your
 own wallet on the DEX's official contract.
@@ -166,8 +165,10 @@ lose money if the price moves out of it.
 **LPSignal MCP 服务**：Uniswap / DeFi 流动性池的 MCP 服务器，托管在 `https://api.lpsignal.app/v1/mcp`（Streamable HTTP），无需安装。
 让 Claude、Cursor 等 AI agent 直接查询集中流动性池的**净 APR（手续费 − 无常损失）**排名、某个交易对在各链各费率的池子、任意价格区间的回测、
 最新 LP 信号、信号历史表现和聪明 LP 排行，支持 Ethereum、Base、Arbitrum、BNB Chain、Optimism、Polygon、Robinhood Chain 上的
-Uniswap v3/v4、PancakeSwap v3、Aerodrome、Velodrome。全部工具只读，不碰资金。不带密钥为免费视图；在请求头加
-`Authorization: Bearer lps_…`（[账户页](https://lpsignal.app/zh/account)生成）按你的套餐返回。数据是历史回测，不是预测，也不构成投资建议。
+Uniswap v3/v4、PancakeSwap v3、Aerodrome、Velodrome。全部工具只读，不碰资金。连接
+`https://api.lpsignal.app/v1/mcp` 时，应用会打开 lpsignal.app，用钱包登录并点“允许”（OAuth 2.1）即可，之后按你的套餐返回内容，可在
+[账户页](https://lpsignal.app/zh/account)随时断开；也可以在请求头放 API 密钥 `Authorization: Bearer lps_…`。不想登录用
+`https://api.lpsignal.app/v1/mcp/public`（免费视图）。数据是历史回测，不是预测，也不构成投资建议。
 
 社区与支持：[X @lpsignalhq](https://x.com/lpsignalhq) · [Discord](https://discord.gg/buKQT9mkaF) · Telegram 信号机器人 [@LPsignals_bot](https://t.me/LPsignals_bot) · [Telegram 客服](https://t.me/lpsignal_support) · [support@lpsignal.app](mailto:support@lpsignal.app) · [中文官网](https://lpsignal.app/zh)
 
