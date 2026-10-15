@@ -1,6 +1,12 @@
 # LPSignal MCP Server — Uniswap & DeFi liquidity pool APR for AI agents
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-app.lpsignal%2Flpsignal-blue)](https://registry.modelcontextprotocol.io/v0.1/servers?search=app.lpsignal/lpsignal)
+[![Website](https://img.shields.io/badge/website-lpsignal.app-0b7285)](https://lpsignal.app)
+[![Docs](https://img.shields.io/badge/docs-lpsignal.app%2Fdocs-0b7285)](https://lpsignal.app/docs)
+[![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/buKQT9mkaF)
+[![Telegram](https://img.shields.io/badge/Telegram-%40LPsignals__bot-26A5E4?logo=telegram&logoColor=white)](https://t.me/LPsignals_bot)
+[![npm](https://img.shields.io/npm/v/lpsignal?label=npm%20lpsignal)](https://www.npmjs.com/package/lpsignal)
+[![PyPI](https://img.shields.io/pypi/v/lpsignal?label=PyPI%20lpsignal)](https://pypi.org/project/lpsignal/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 A hosted **Uniswap and DeFi MCP server** (Model Context Protocol) that lets AI agents — Claude, Cursor, VS Code Copilot,
@@ -141,9 +147,17 @@ lose money if the price moves out of it.
 ## Related
 
 - REST API: [OpenAPI 3.1](https://api.lpsignal.app/v1/openapi.json) · [documentation](https://lpsignal.app/docs) · [how net APR is measured](https://lpsignal.app/methodology)
-- SDKs: [Node.js](https://github.com/LPSignals/lpsignal-node) (`npm i lpsignal`) · [Python](https://github.com/LPSignals/lpsignal-python) (`pip install lpsignal`)
+- SDKs: [Node.js](https://github.com/LPSignals/lpsignal-node) ([npm](https://www.npmjs.com/package/lpsignal): `npm i lpsignal`) · [Python](https://github.com/LPSignals/lpsignal-python) ([PyPI](https://pypi.org/project/lpsignal/): `pip install lpsignal`)
 - Live push: WebSocket stream, signed webhooks, Telegram
-- Website: [lpsignal.app](https://lpsignal.app) — pool pages, [token pairs](https://lpsignal.app/pairs), [LP returns report](https://lpsignal.app/reports/lp-returns)
+- Website: [lpsignal.app](https://lpsignal.app) — pool pages, [token pairs](https://lpsignal.app/pairs), [LP returns report](https://lpsignal.app/reports/lp-returns), [signals and track record](https://lpsignal.app/signals), [smart-LP leaderboard](https://lpsignal.app/smart-lps), [pricing](https://lpsignal.app/pricing)
+
+## Community and support
+
+- **Discord**: [discord.gg/buKQT9mkaF](https://discord.gg/buKQT9mkaF) — questions, feedback, the free signal feed
+- **Telegram bot**: [@LPsignals_bot](https://t.me/LPsignals_bot) — signals pushed to your chat
+- **Telegram support**: [t.me/lpsignal_support](https://t.me/lpsignal_support)
+- **Email**: [support@lpsignal.app](mailto:support@lpsignal.app)
+- **GitHub**: [github.com/LPSignals](https://github.com/LPSignals)
 
 ## 中文
 
@@ -152,6 +166,8 @@ lose money if the price moves out of it.
 最新 LP 信号、信号历史表现和聪明 LP 排行，支持 Ethereum、Base、Arbitrum、BNB Chain、Optimism、Polygon、Robinhood Chain 上的
 Uniswap v3/v4、PancakeSwap v3、Aerodrome、Velodrome。全部工具只读，不碰资金。不带密钥为免费视图；在请求头加
 `Authorization: Bearer lps_…`（[账户页](https://lpsignal.app/zh/account)生成）按你的套餐返回。数据是历史回测，不是预测，也不构成投资建议。
+
+社区与支持：[Discord](https://discord.gg/buKQT9mkaF) · Telegram 信号机器人 [@LPsignals_bot](https://t.me/LPsignals_bot) · [Telegram 客服](https://t.me/lpsignal_support) · [support@lpsignal.app](mailto:support@lpsignal.app) · [中文官网](https://lpsignal.app/zh)
 
 ## License
 
