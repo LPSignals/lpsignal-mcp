@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "lpsignal": { "type": "http", "url": "https://api.lpsignal.app/v1/mcp" }
+  }
+}

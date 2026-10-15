@@ -1,0 +1,12 @@
+{
+  "name": "lpsignal",
+  "description": "LPSignal plugins for Claude Code",
+  "owner": { "name": "LPSignal", "email": "support@lpsignal.app" },
+  "plugins": [
+    {
+      "name": "lpsignal",
+      "source": "./plugins/lpsignal",
+      "description": "Concentrated-liquidity LP pools ranked by net APR (fees minus impermanent loss), range backtests, LP signals and risk alerts, via the hosted LPSignal MCP server"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "lpsignal",
+  "description": "Concentrated-liquidity LP pools ranked by net APR (fees minus impermanent loss), range backtests, LP signals and risk alerts, via the hosted LPSignal MCP server",
+  "author": { "name": "LPSignal", "email": "support@lpsignal.app", "url": "https://lpsignal.app" },
+  "homepage": "https://lpsignal.app/docs#mcp",
+  "repository": "https://github.com/LPSignals/lpsignal-mcp",
+  "license": "MIT",
+  "keywords": ["uniswap", "defi", "liquidity-pool", "apr", "impermanent-loss", "backtest", "mcp"]
+}

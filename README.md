@@ -57,7 +57,14 @@ Connect.
 **ChatGPT**: Settings → Connectors (developer mode) → Create → URL `https://api.lpsignal.app/v1/mcp`, authentication
 OAuth.
 
-**Claude Code**
+**Claude Code**: as a plugin (the server plus a skill that tells Claude how to use it):
+
+```
+/plugin install lpsignal --marketplace LPSignals/lpsignal-mcp
+```
+
+On Claude Code before 2.1.275: `/plugin marketplace add LPSignals/lpsignal-mcp`, then `/plugin install lpsignal@lpsignal`.
+Or just the server:
 
 ```bash
 claude mcp add --transport http lpsignal https://api.lpsignal.app/v1/mcp
@@ -98,7 +105,7 @@ All read-only: the server never touches funds or wallets.
 | `find_pair_pools` | Every pool of a token pair across chains, DEXes and fee tiers, e.g. `USDC` + `WETH` |
 | `get_pool` | One pool: each range's fee APR, impermanent loss, net APR, time in range and exact ticks |
 | `backtest_range` | Backtest any ±x% price range (or full range) on a pool over the last 1–30 days |
-| `list_signals` | Latest LP signals: opportunities (`net_apr`, `burst`, `hot_pool`) and risk alerts (stablecoin `depeg`, `tvl_outflow`) |
+| `list_signals` | Latest LP signals: opportunities (`net_apr`, `burst`, `hot_pool`) and risk alerts (stablecoin `depeg`, `tvl_outflow`); each says `access: live` or `delayed_24h` |
 | `signal_track_record` | How past signals really did, re-backtested on their exact ticks |
 | `smart_lp_leaderboard` | Wallets ranked by what their closed LP positions made versus holding the tokens |
 | `my_account` | Your plan, subscriptions and custom alert rules (signed in; not on `/public`) |
@@ -169,6 +176,8 @@ Uniswap v3/v4、PancakeSwap v3、Aerodrome、Velodrome。全部工具只读，�
 `https://api.lpsignal.app/v1/mcp` 时，应用会打开 lpsignal.app，用钱包登录并点“允许”（OAuth 2.1）即可，之后按你的套餐返回内容，可在
 [账户页](https://lpsignal.app/zh/account)随时断开；也可以在请求头放 API 密钥 `Authorization: Bearer lps_…`。不想登录用
 `https://api.lpsignal.app/v1/mcp/public`（免费视图）。数据是历史回测，不是预测，也不构成投资建议。
+
+Claude Code 插件（服务器 + 使用说明 skill）：`/plugin install lpsignal --marketplace LPSignals/lpsignal-mcp`。
 
 社区与支持：[X @lpsignalhq](https://x.com/lpsignalhq) · [Discord](https://discord.gg/buKQT9mkaF) · Telegram 信号机器人 [@LPsignals_bot](https://t.me/LPsignals_bot) · [Telegram 客服](https://t.me/lpsignal_support) · [support@lpsignal.app](mailto:support@lpsignal.app) · [中文官网](https://lpsignal.app/zh)
 
